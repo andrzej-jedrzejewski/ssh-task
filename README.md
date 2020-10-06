@@ -5,7 +5,7 @@ Repository contains script that can be run within docker. The script allows you 
 ## How to use the solution?
 
 #### Step # 1:
-Get ssh keys from DevOps team and put them in your local repository directory, next to the Dockerfile:
+Clone repo and get ssh keys from DevOps team and put them in your local repository directory, next to the Dockerfile:
 
 
 #### Step # 2:
@@ -25,7 +25,7 @@ docker run -it ajsshclient:latest server6
 
 
 ### Test environment
-Test environment was build within terraform in AWS with one bastion and three backend server:
+Test environment was build within terraform in AWS with one bastion and three backend servers:
 https://github.com/andrzej-jedrzejewski/terraform-ssh-client-poc
 
 
@@ -33,9 +33,7 @@ https://github.com/andrzej-jedrzejewski/terraform-ssh-client-poc
 Assuming the login username to all servers is ubuntu and we have public key authentication
 (your public key is already on all of those hosts), how would you log in to a server?
 
-If ssh keys were added properly to the server:
-
-If you use old version of openssh:
+If ssh keys were added properly to the server and you use old version of openssh:
 ```bash
 ssh ubuntu@SERVERIP -o ProxyCommand="ssh -W %h:%p ubuntu@BASTIONIP" 
 ```
@@ -69,6 +67,5 @@ Host server2
    ProxyJump ubuntu@Bastion
    IdentityFile ~/.ssh/backend1_private_key.pem
 ```
-
-If there is no option to use ansible I would go with some python/go.
+Next, I will create ansible playbooks to execute the defined tasks on the targeted hosts. If there is no option to use ansible I would go with some python/go.
 
