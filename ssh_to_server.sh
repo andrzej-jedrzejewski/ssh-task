@@ -15,6 +15,7 @@ function get_server_details() {
 }
 
 function ssh_to_server() {
+
     eval $(ssh-agent -s) &> /dev/null
     ssh-add -D &> /dev/null
     ssh-add -k /workdir/backend1_private_key.pem &> /dev/null
@@ -28,3 +29,5 @@ function ssh_to_server() {
 
 get_server_details "$SERVERNAME"
 ssh_to_server
+
+a608fc1cf92b1ffe92faf6b3ecee0b07f4167d9b
