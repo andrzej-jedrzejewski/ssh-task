@@ -1,0 +1,18 @@
+server1:
+  ip: 192.168.0.1
+  bastion: 212.186.105.45
+server2:
+  ip: 192.168.0.2
+  bastion: 212.186.105.45
+server3:
+  ip: 192.168.0.3
+  bastion: 212.186.105.48
+server4:
+  ip: 192.168.0.4
+  bastion: 212.186.105.49
+server5:
+  ip: 192.168.134.49
+  bastion: 3.126.210.69
+server6:
+  ip: 192.168.146.33
+  bastion: 3.126.210.69
