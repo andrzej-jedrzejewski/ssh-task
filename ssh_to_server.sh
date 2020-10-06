@@ -18,8 +18,7 @@ function ssh_to_server() {
 
     eval $(ssh-agent -s) &> /dev/null
     ssh-add -D &> /dev/null
-    ssh-add -k /workdir/backend1_private_key.pem &> /dev/null
-    ssh-add -k /workdir/bastion.pem &> /dev/null
+    ssh-add -k /workdir/*.pem &> /dev/null
     #The ProxyJump, or the -J flag, was introduced in ssh version 7.3.
     CONNECTIONSTRING="$USERNAME@$BASTIONIP $USERNAME@$SERVERIP"
     echo "Your connection string: $CONNECTIONSTRING"
@@ -29,5 +28,3 @@ function ssh_to_server() {
 
 get_server_details "$SERVERNAME"
 ssh_to_server
-
-a608fc1cf92b1ffe92faf6b3ecee0b07f4167d9b
